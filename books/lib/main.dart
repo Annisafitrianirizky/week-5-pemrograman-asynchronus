@@ -81,6 +81,15 @@ class _FuturePageState extends State<FuturePage> {
     return http.get(url);
   }
 
+  calculate2() async {
+    try {
+      await Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    } catch (e) {
+      completer.completeError(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,9 +107,22 @@ class _FuturePageState extends State<FuturePage> {
                 getNumber().then((value) {
                   setState(() {
                     result = value.toString();
-                  });
+                    });
+                  }).catchError((e) {
+                    result = 'An error occurred';
                 });
+
+                //(Prak 3)
+                //getNumber().then((value) {
+                  //setState(() {
+                    //result = value.toString();
+                  //});
+                //});
+
+                //(Prak 2)
                 //count();
+
+                //(Prak 1)
                 //setState(() {
                   //isLoading = true;
                 //}); 
