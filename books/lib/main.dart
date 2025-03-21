@@ -34,6 +34,7 @@ class FuturePage extends StatefulWidget {
 
 class _FuturePageState extends State<FuturePage> {
   String result = '';
+  bool isLoading = false;
 
   Future<Response> fetchData() async {
     const authority = 'www.googleapis.com';
@@ -55,26 +56,27 @@ class _FuturePageState extends State<FuturePage> {
           children: [
             const Spacer(),
             ElevatedButton(
-              child: const Text('Go!'),
               onPressed: () {
-                setState(() {}); 
+                setState(() {
+                  isLoading = true;
+                }); 
                 fetchData().then((value) {
                   setState(() {
                     result = value.body.toString().substring(0, 450);
+                    isLoading = false;
                     });
                     }).catchError((_) {
                       setState(() {
                         result = 'An error occurred';
-                      }
-                    );
-                  }
-                );
-              },
-            ),
+                        isLoading = false;  
+                      });
+                    });
+                  },
+                  child: const Text('Go!'),
+                ),
             const Spacer(),
             Text(result),
-            const Spacer(),
-            const CircularProgressIndicator(),
+            isLoading ? const CircularProgressIndicator() : const SizedBox.shrink(),
             const Spacer(),
           ],
         ),
