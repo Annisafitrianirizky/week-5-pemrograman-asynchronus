@@ -108,11 +108,24 @@ class _FuturePageState extends State<FuturePage> {
     });
   }
 
-  Future<Response> fetchData() async {
+  Future<Response> getData() async {
     const authority = 'www.googleapis.com';
     const path = '/books/v1/volumes/39B4zwEACAAJ';
     Uri url = Uri.https(authority, path);
     return http.get(url);
+  }
+
+  Future handleError() async {
+    try {
+      await returnError();
+    } catch (error) {
+      setState(() {
+        result = error.toString();
+      });
+    }
+    finally {
+      print('Complete');
+    }
   }
 
   calculate2() async {
@@ -139,7 +152,18 @@ class _FuturePageState extends State<FuturePage> {
             ElevatedButton(
               onPressed: () {
                 //(Prak 5)
-                returnError().then((value) {
+                //returnError().then((value) {
+                  //setState(() {
+                    //result = 'Success';
+                  //});
+                //}).catchError((onError) {
+                  //setState(() {
+                    //result = onError.toString();
+                  //});
+                //}).whenComplete(() => print('Complete'));
+
+                //(Prak 5)
+                handleError().then((value) {
                   setState(() {
                     result = 'Success';
                   });
@@ -175,7 +199,7 @@ class _FuturePageState extends State<FuturePage> {
                 //setState(() {
                   //isLoading = true;
                 //}); 
-                //fetchData().then((value) {
+                //getData().then((value) {
                   //setState(() {
                     //result = value.body.toString().substring(0, 450);
                     //isLoading = false;
