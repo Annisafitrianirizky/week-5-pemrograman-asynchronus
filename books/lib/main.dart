@@ -93,6 +93,11 @@ class _FuturePageState extends State<FuturePage> {
   return 3;
   }
 
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something Terrible Happened');
+  }
+
   Future count () async {
     int total = 0;
     total = await returnOneAsync();
@@ -133,8 +138,19 @@ class _FuturePageState extends State<FuturePage> {
             const Spacer(),
             ElevatedButton(
               onPressed: () {
+                //(Prak 5)
+                returnError().then((value) {
+                  setState(() {
+                    result = 'Success';
+                  });
+                }).catchError((onError) {
+                  setState(() {
+                    result = onError.toString();
+                  });
+                }).whenComplete(() => print('Complete'));
+
                 //(Prak 4)
-                returnFG();
+                //returnFG();
 
                 //(Prak 3)
                 //getNumber().then((value) {
