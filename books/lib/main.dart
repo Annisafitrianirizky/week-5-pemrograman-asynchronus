@@ -38,22 +38,34 @@ class _FuturePageState extends State<FuturePage> {
   bool isLoading = false;
   late Completer completer;
 
-  void returnFG() {
-    FutureGroup<int> futureGroup = FutureGroup<int>();
-    futureGroup.add(returnOneAsync());
-    futureGroup.add(returnTwoAsync());
-    futureGroup.add(returnThreeAsync());
-    futureGroup.close();  
-    futureGroup.future.then((List<int> value) {
-      int total = 0;
-      for (var element in value) {
-        total += element;
-      }
-      setState(() {
-        result = value.toString();
-      });
-    });
-  }
+  void returnFG() async {
+  final results = await Future.wait<int>([
+    returnOneAsync(),
+    returnTwoAsync(),
+    returnThreeAsync(),
+  ]);
+
+  setState(() {
+    result = results.toString();
+  });
+}
+  //(Prak 4)
+  //void returnFG() {
+    //FutureGroup<int> futureGroup = FutureGroup<int>();
+    //futureGroup.add(returnOneAsync());
+    //futureGroup.add(returnTwoAsync());
+    //futureGroup.add(returnThreeAsync());
+    //futureGroup.close();  
+    //futureGroup.future.then((List<int> value) {
+      //int total = 0;
+      //for (var element in value) {
+        //total += element;
+      //}
+      //setState(() {
+        //result = value.toString();
+      //});
+    //});
+  //}
   
   Future getNumber() {
   completer = Completer<int>();
@@ -112,7 +124,7 @@ class _FuturePageState extends State<FuturePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Back From Future'),
+        title: const Text('Back From Future (annisa fitriani rizky)'),
       ),
       body: Center(
         child: Column(
