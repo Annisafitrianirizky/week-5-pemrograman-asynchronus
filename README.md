@@ -43,6 +43,10 @@ Soal 4
 
 Jawaban :
 
+Langkah 1 : menyediakan fungsi-fungsi async dengan delay yang mengembalikan angka.
+
+Langkah 2 : menjalankan fungsi-fungsi itu satu per satu, menjumlahkan hasilnya, dan menampilkannya di UI. Ini melatih konsep dasar pengelolaan async dengan await dan update state dengan setState().
+
 -> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 4".
 
 ![take5](./Images/soal4.gif)
@@ -54,6 +58,10 @@ Soal 5
 
 -> Jelaskan maksud kode langkah 2 tersebut!
 
+Jawaban :
+
+Kode ini mensimulasikan proses asynchronous manual menggunakan Completer. Fungsi getNumber() segera mengembalikan Future, tapi nilainya baru tersedia setelah calculate() menyelesaikannya 5 detik kemudian dengan completer.complete(42).
+
 
 ->Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 5"
 
@@ -64,6 +72,11 @@ Soal 6
 
 -> Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!
 
+Jawaban :
+
+pada langkah 2 tidak menangani error, jadi kalau misalnya terjadi error di delayed (meskipun kecil kemungkinannya), error akan menggagalkan Future dan tidak ada fallback atau info error yang diberikan ke pemanggil.
+
+sementara pada langkah 5-6 menggunakan try-catch untuk menangkap error yang mungkin terjadi. Sehingga, jika terjadi error di dalam blok try, misalnya kita mengaktifkan throw Exception();, maka: completer.completeError({}) akan dipanggil. Ini membuat completer.future menyelesaikan dengan error, bukan nilai.
 
 -> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 6".
 
