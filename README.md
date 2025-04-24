@@ -149,3 +149,22 @@ Ya, saya mendapatkan koordinat GPS saat menjalankan di browser (Chrome), karena 
 -> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 12".
 
 ![take14](./Images/location.gif)
+
+
+Soal 13
+
+-> Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?
+
+Jawaban :
+
+Secara tampilan UI, hasil dari praktikum 6 dan 7 terlihat mirip, yaitu menampilkan animasi loading terlebih dahulu, lalu menampilkan lokasi pengguna setelah didapatkan. Namun, ada perbedaan cara kerja di balik UI antara keduanya, yaitu pada praktikum sebelumnya (Prak 6), data lokasi diambil secara manual di initState() lalu UI diperbarui menggunakan setState().
+
+Sedangkan di praktikum ini (Prak 7), digunakan widget FutureBuilder yang lebih efisien, clean, dan reactive karena langsung menghubungkan Future dengan UI tanpa harus mengelola state secara manual.
+
+Penggunaan FutureBuilder juga memudahkan untuk menangani berbagai kondisi Future seperti loading, success, dan error, sehingga kode lebih mudah dibaca dan dikelola.
+
+-> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 13".
+
+![take15](./Images/soal13.gif)
+
+-> Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
