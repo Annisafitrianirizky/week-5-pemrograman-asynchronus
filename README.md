@@ -129,6 +129,23 @@ Tugas Praktikum 6
 
 Soal 11
 
-
 -> Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
 
+![take11](./Images/nama.png)
+![take12](./Images/title2.png)
+![take13](./Images/title3.png)
+
+
+Soal 12
+
+-> Jika Anda tidak melihat animasi loading tampil, kemungkinan itu berjalan sangat cepat. Tambahkan delay pada method getPosition() dengan kode await Future.delayed(const Duration(seconds: 3));
+
+-> Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+
+Jawaban :
+
+Ya, saya mendapatkan koordinat GPS saat menjalankan di browser (Chrome), karena plugin geolocator secara otomatis menggunakan geolocator_web untuk platform web, yang mengakses lokasi lewat API navigator.geolocation milik browser. Selain itu, browser seperti Chrome memperbolehkan akses lokasi saat dijalankan dari localhost dan telah diberikan izin oleh pengguna. Namun, data lokasi yang didapat biasanya berdasarkan Wi-Fi atau IP, bukan dari GPS perangkat secara langsung, sehingga akurasinya bisa lebih rendah dibanding perangkat mobile.
+
+-> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 12".
+
+![take14](./Images/location.gif)
