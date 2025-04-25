@@ -185,7 +185,26 @@ Dengan menambahkan pengecekan snapshot.hasError, aplikasi menjadi lebih user-fri
 -> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 14".
 
 ![take16](./Images/setuju.gif)
+
 (ini apabila user menyetujui mengaktifkan lokasi gps)
 
 ![take17](./Images/tolak.gif)
+
 (ini yang terjadi apabila user menolak mengaktifkan lokasi gps)
+
+
+Soal 16
+
+-> Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+Jawaban :
+
+Saat tombol "Change Color" ditekan, kita diarahkan ke halaman kedua. Lalu, jika kita tekan salah satu tombol warna di halaman kedua, kita kembali ke halaman pertama dan latar belakang halaman pertama akan berubah sesuai warna yang dipilih. Hal ini terjadi karena kita mengirim nilai warna lewat Navigator.pop() dan memperbarui tampilan dengan setState().
+
+-> Gantilah 3 warna pada langkah 5 dengan warna favorit Anda!
+
+![take18](./Images/warna.png)
+
+-> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 16".
+
+![take19](./Images/soal16.gif)
