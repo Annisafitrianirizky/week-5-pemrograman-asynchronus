@@ -208,3 +208,17 @@ Saat tombol "Change Color" ditekan, kita diarahkan ke halaman kedua. Lalu, jika 
 -> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 16".
 
 ![take19](./Images/soal16.gif)
+
+
+Soal 17
+
+-> Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+Jawaban :
+Saat tombol "Change Color" ditekan, akan muncul dialog berisi tiga pilihan warna. Ketika salah satu tombol warna ditekan, dialog akan tertutup dan warna latar belakang layar akan berubah sesuai warna yang dipilih. Hal ini terjadi karena nilai warna dikirim dari dialog menggunakan Navigator.pop, lalu UI diperbarui dengan setState setelah warna diubah.
+
+-> Gantilah 3 warna pada langkah 3 dengan warna favorit Anda!
+
+-> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 17".
+
+![take20](./Images/soal17.gif)
