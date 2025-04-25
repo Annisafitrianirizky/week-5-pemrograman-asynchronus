@@ -168,3 +168,24 @@ Penggunaan FutureBuilder juga memudahkan untuk menangani berbagai kondisi Future
 ![take15](./Images/soal13.gif)
 
 -> Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
+
+
+Soal 14 :
+
+-> Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
+
+Jawaban :
+
+Ya, ada perbedaan pada UI setelah menambahkan handling error menggunakan snapshot.hasError. Sekarang, jika terjadi error saat mengambil data lokasi (misalnya user menolak izin lokasi atau device tidak bisa mengakses lokasi), maka UI akan menampilkan pesan:
+"Something terrible happened!"
+Sebelumnya, jika terjadi error, UI hanya diam atau menampilkan data kosong karena tidak ada penanganan error secara eksplisit.
+
+Dengan menambahkan pengecekan snapshot.hasError, aplikasi menjadi lebih user-friendly karena pengguna mendapatkan feedback saat terjadi error.
+
+-> Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W5: Soal 14".
+
+![take16](./Images/setuju.gif)
+(ini apabila user menyetujui mengaktifkan lokasi gps)
+
+![take17](./Images/tolak.gif)
+(ini yang terjadi apabila user menolak mengaktifkan lokasi gps)
